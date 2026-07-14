@@ -102,6 +102,35 @@ O instalador ainda não possui certificado comercial de assinatura de código. P
 
 Para novos usuários, use sempre a [versão mais recente](https://github.com/eentaocaedu/canvas-d/releases/latest). As versões anteriores permanecem disponíveis para histórico e testes de regressão.
 
+### Instalação pelo PowerShell
+
+O comando abaixo consulta a Release mais recente, baixa o instalador oficial, valida o SHA-256 informado pelo GitHub e abre a instalação:
+
+```powershell
+irm https://raw.githubusercontent.com/eentaocaedu/canvas-d/main/install.ps1 | iex
+```
+
+Para revisar o script antes de executar:
+
+```powershell
+iwr https://raw.githubusercontent.com/eentaocaedu/canvas-d/main/install.ps1 -OutFile install.ps1
+Get-Content .\install.ps1
+powershell -ExecutionPolicy Bypass -File .\install.ps1
+```
+
+Também é possível escolher uma versão ou instalar silenciosamente:
+
+```powershell
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/eentaocaedu/canvas-d/main/install.ps1))) -Version 0.8.0
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/eentaocaedu/canvas-d/main/install.ps1))) -Silent
+```
+
+No Prompt de Comando (`cmd.exe`):
+
+```bat
+powershell -NoProfile -ExecutionPolicy Bypass -Command "irm https://raw.githubusercontent.com/eentaocaedu/canvas-d/main/install.ps1 | iex"
+```
+
 ## Uso rápido
 
 1. Clique em **Novo projeto**.
@@ -197,6 +226,13 @@ build/          # Recursos do instalador Windows
 ## Histórico
 
 Veja [CHANGELOG.md](CHANGELOG.md) para a descrição detalhada do que foi implementado em cada versão, da `0.1.0` à versão atual.
+
+## Roadmap
+
+- [ ] Atualização automática pelo próprio aplicativo usando GitHub Releases.
+- [ ] Download em segundo plano e instalação ao reiniciar.
+- [ ] Publicação de `latest.yml` e blockmaps para atualizações incrementais.
+- [ ] Assinatura comercial de código para reduzir avisos do Windows SmartScreen.
 
 ## Licença
 
