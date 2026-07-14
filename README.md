@@ -201,4 +201,3 @@ Veja [CHANGELOG.md](CHANGELOG.md) para a descrição detalhada do que foi implem
 ## Licença
 
 Distribuído sob a [licença MIT](LICENSE).
-
