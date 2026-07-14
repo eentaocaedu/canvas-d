@@ -1,123 +1,204 @@
-# Canvas D
+<div align="center">
+  <img src="assets/Ativo%201.svg" width="104" alt="Ícone do Canvas D" />
 
-Canvas D is a local desktop infinite canvas app for Windows. It is focused on fast wireframes, website layout sketches, mind maps and visual organization without cloud, login or backend services.
+  # Canvas D
 
-[Baixar a versao mais recente para Windows](https://github.com/eentaocaedu/canvas-d/releases/latest)
+  **Canvas infinito local para transformar ideias em layouts, fluxos, mapas mentais e arte vetorial.**
 
-## Download
+  [![Versão](https://img.shields.io/github/v/release/eentaocaedu/canvas-d?display_name=tag&style=flat-square&color=2563eb)](https://github.com/eentaocaedu/canvas-d/releases/latest)
+  [![Windows](https://img.shields.io/badge/Windows-10%20%7C%2011-0078d4?style=flat-square&logo=windows11)](https://github.com/eentaocaedu/canvas-d/releases/latest)
+  [![Electron](https://img.shields.io/badge/Electron-37-47848f?style=flat-square&logo=electron)](https://www.electronjs.org/)
+  [![Licença MIT](https://img.shields.io/badge/licença-MIT-22c55e?style=flat-square)](LICENSE)
 
-Os instaladores do Windows ficam na pagina de [Releases](https://github.com/eentaocaedu/canvas-d/releases). Cada versao historica publicada possui seu proprio instalador `.exe`.
+  [**Baixar para Windows**](https://github.com/eentaocaedu/canvas-d/releases/latest) · [Histórico de versões](CHANGELOG.md) · [Reportar problema](https://github.com/eentaocaedu/canvas-d/issues)
+</div>
 
-## Stack
+---
 
-- Electron
-- electron-vite
-- React
-- TypeScript
-- Zustand
-- react-konva / Konva
-- Tailwind CSS
-- electron-builder
-- Local JSON persistence with `.pcanvas`
+## O que é o Canvas D?
 
-## Commands
+Canvas D é um aplicativo desktop rápido, local e sem login, criado para montar ideias visuais sem interromper o raciocínio. Ele combina a liberdade de um canvas infinito com ferramentas de layout, diagramação, texto, imagem e vetores.
+
+Use o aplicativo para:
+
+- esboçar páginas, interfaces e wireframes;
+- criar fluxogramas e mapas mentais;
+- organizar referências e imagens;
+- montar layouts rápidos para redes sociais;
+- desenhar e editar formas e caminhos vetoriais;
+- trabalhar em uma prancheta com tamanho e DPI definidos;
+- exportar o resultado em formatos raster e vetoriais.
+
+Tudo funciona localmente. Os projetos são armazenados em arquivos `.pcanvas`, sem nuvem, conta ou backend obrigatório.
+
+## Principais recursos
+
+### Canvas e documentos
+
+- Canvas infinito com pan, zoom, grade, réguas e guias.
+- Pranchetas de tamanho definido em `px`, `cm`, `mm` ou `m`.
+- Presets para telas, redes sociais, mobile, A4, A3 e cartão.
+- Orientação, DPI e fundo configuráveis na criação do documento.
+- Projetos recentes, autosave local e formato editável `.pcanvas`.
+- Histórico com undo/redo, agrupamento e multisseleção.
+
+### Desenho e vetores
+
+- Retângulo, elipse, losango, polígono e nota adesiva.
+- Linhas, setas diretas ou ortogonais e conectores opcionais.
+- Caneta vetorial com paths abertos/fechados e âncoras editáveis.
+- Desenho livre, frames, imagens e recorte não destrutivo.
+- Cantos de retângulos ajustáveis em conjunto ou individualmente com `Shift`.
+- Preenchimento, stroke, espessura, tracejado, pontas e opacidade.
+- SVG importado como paths, grupos e textos editáveis quando compatível.
+
+### Texto
+
+- **Texto ponto:** clique para criar texto livre em uma linha natural.
+- **Texto parágrafo:** arraste para definir uma caixa com quebra de linha.
+- Fontes instaladas no Windows carregadas diretamente no seletor.
+- Família, peso, itálico, tamanho, tracking, entrelinha e alinhamento.
+- Caixa de parágrafo redimensionável sem esticar a fonte.
+
+### Organização e interface
+
+- Painel de camadas com previews, renomeação, visibilidade, bloqueio e reordenação.
+- Seleção múltipla com `Ctrl` e intervalo com `Shift`.
+- Rolagem da lista de camadas durante o próprio drag and drop.
+- Painel de propriedades redimensionável, recolhível e persistente.
+- Cards minimizáveis e reordenáveis por arraste.
+- Camadas encaixáveis no painel ou flutuantes sobre o canvas.
+- Cinco temas, densidade da interface, grade e redução de animações.
+
+### Alinhamento e precisão
+
+- Smart guides magnéticas durante movimento e redimensionamento.
+- Alinhamento por esquerda, centro, direita, topo, meio e base.
+- Distribuição horizontal e vertical de múltiplos elementos.
+- Réguas e guias reposicionáveis, bloqueáveis e não exportáveis.
+- Campos numéricos digitáveis com confirmação por `Enter`.
+
+## Formatos
+
+| Formato | Abrir/importar | Editar | Salvar/exportar | Observação |
+|---|:---:|:---:|:---:|---|
+| `.pcanvas` | ✅ | ✅ | ✅ | Formato de projeto com maior fidelidade |
+| `.svg` | ✅ | ✅ | ✅ | Vetor recomendado para intercâmbio |
+| `.eps` | ✅ | Parcial | ✅ | Compatibilidade com comandos PostScript suportados |
+| `.png` | ✅ | Como imagem | ✅ | Exportação no tamanho exato da prancheta |
+| `.jpg/.jpeg` | ✅ | Como imagem | ✅ | DPI incorporado ao arquivo |
+| `.webp` | ✅ | Como imagem | ✅ | Importação e exportação local |
+| `.ai` | — | — | — | Exporte como SVG no Illustrator antes de abrir |
+
+> O suporte parcial a `.ai` existiu em versões históricas, mas foi removido na `0.7.0` porque não preservava com fidelidade todos os grupos, objetos fora da prancheta e recursos proprietários do Illustrator.
+
+## Download e instalação
+
+1. Abra a página de [Releases](https://github.com/eentaocaedu/canvas-d/releases/latest).
+2. Baixe `Canvas D Setup <versão>.exe`.
+3. Execute o instalador e escolha a pasta de instalação.
+
+O instalador ainda não possui certificado comercial de assinatura de código. Por isso, o Windows SmartScreen pode exibir um aviso de editor desconhecido. Os hashes SHA-256 estão publicados em cada Release para conferência.
+
+Para novos usuários, use sempre a [versão mais recente](https://github.com/eentaocaedu/canvas-d/releases/latest). As versões anteriores permanecem disponíveis para histórico e testes de regressão.
+
+## Uso rápido
+
+1. Clique em **Novo projeto**.
+2. Escolha **Canvas infinito** ou uma **Prancheta** dimensionada.
+3. Selecione uma ferramenta na barra esquerda.
+4. Ajuste suas propriedades antes ou depois da criação.
+5. Organize os elementos no painel de camadas.
+6. Salve com `Ctrl+S` ou exporte pelo menu de documento.
+
+## Atalhos principais
+
+| Atalho | Ação |
+|---|---|
+| `V` | Seleção |
+| `H` | Mão/pan |
+| `F` | Frame |
+| `R` | Retângulo |
+| `O` | Elipse |
+| `D` | Losango |
+| `U` | Polígono |
+| `N` | Nota adesiva |
+| `L` | Linha |
+| `A` | Seta/conector |
+| `B` | Caminho vetorial |
+| `T` | Texto ponto ou parágrafo |
+| `P` | Desenho livre |
+| `I` | Imagem |
+| `C` | Recortar imagem/SVG selecionado |
+| `Ctrl+S` | Salvar projeto aberto |
+| `Ctrl+Shift+S` | Salvar como |
+| `Ctrl+Z` / `Ctrl+Shift+Z` | Desfazer/refazer |
+| `Ctrl+G` / `Ctrl+Shift+G` | Agrupar/desagrupar |
+| `Ctrl+R` | Mostrar/ocultar réguas |
+| `Ctrl+,` | Configurações |
+| `Ctrl+0` / `Ctrl+1` / `Ctrl+2` | Zoom padrão, 100% e enquadrar seleção |
+| `Espaço + arrastar` | Navegar pelo canvas |
+| `Alt + arrastar` | Duplicar elemento |
+
+## Desenvolvimento
+
+### Requisitos
+
+- Windows 10 ou 11
+- Node.js 20 ou superior
+- npm
+
+### Executar localmente
 
 ```bash
 npm install
 npm run dev
-npm run build
-npm run smoke
-npm run dist
 ```
 
-`npm run smoke` abre o Electron por DevTools Protocol e verifica a tela inicial, preload/IPC, fontes locais, menus, ferramentas de desenho, os dois modos de texto, importacao SVG/EPS/WebP, crop, camadas, multisselecao, aparencia, grupos, clipboard, historico, atalhos e erros do renderer.
+No PowerShell, caso a política de execução bloqueie o shim do npm, use `npm.cmd`:
 
-On Windows PowerShell, if `npm` is blocked by execution policy, use `npm.cmd`:
-
-```bash
+```powershell
 npm.cmd install
 npm.cmd run dev
 ```
 
-## Basic use
+### Validar e empacotar
 
-1. Start the app with `npm.cmd run dev` or install the latest Windows build from [GitHub Releases](https://github.com/eentaocaedu/canvas-d/releases/latest).
-2. Click **Novo projeto** and choose between an infinite canvas or a sized artboard. Artboards support px, cm, mm, m, presets, orientation, DPI, and background.
-3. Use the left toolbar or shortcuts to switch tools:
-   - `V` select
-   - `H` pan
-   - `F` frame
-   - `R` rectangle
-   - `O` ellipse
-   - `D` diamond
-   - `U` polygon
-   - `N` sticky note
-   - `L` line
-   - `A` arrow
-   - `B` vector path
-   - `T` text
-   - `P` freehand
-   - `I` image
-   - `C` crop selected image/SVG
-4. Pan with the hand tool, middle mouse, or space + drag.
-5. Zoom with Ctrl + scroll, Ctrl + `+`, Ctrl + `-`, Ctrl + `0`, and Ctrl + `1`. Use Ctrl + `2` to fit the selection or visible artwork.
-6. Select objects to edit properties in the right inspector.
-7. Use Ctrl + S to update the open `.pcanvas`, `.svg`, or `.eps` document, and Ctrl + Shift + S to choose a new format.
-8. Select a frame or objects and export PNG, JPEG, WebP, or editable SVG from the top bar or inspector.
+```powershell
+npm.cmd run build
+npm.cmd run smoke
+npm.cmd run test:metadata
+npm.cmd run dist
+```
 
-## MVP scope
+O instalador NSIS é gerado em `release/`. Essa pasta, assim como `node_modules/` e `out/`, não faz parte do controle de versão.
 
-- Local workspaces and `.pcanvas` files
-- Infinite visual canvas with camera-based pan and zoom
-- Frames, live shapes, point/paragraph text, straight/orthogonal smart connectors, editable vector paths, freehand and images
-- Selection, move, resize and rotate
-- Contextual inspector controls with persistent tool styles
-- Full picker populated from fonts installed on Windows
-- Smart guides, rulers, alignment, distribution and a layers panel
-- Local save, open, recent projects and autosave
-- Configurable new-project flow with infinite mode or fixed artboards in px/cm/mm/m
-- Native editable SVG import and EPS PostScript path import
-- PNG/JPEG/WebP raster export plus editable SVG and EPS vector export
-- A document menu with New, Open, Save, Save As, export formats, current path, and save state
-- A persistent, resizable Properties dock with collapsible and drag-sortable cards, plus a compact icon rail
-- Dockable Layers panel with click-outside closing and mouse-wheel scrolling while a layer is being dragged
-- Persistent Settings for five color themes, interface density, canvas grid, reduced motion, and panel behavior
+## Stack
 
-## Current MVP notes
+- Electron e electron-vite
+- React e TypeScript
+- Konva e react-konva
+- Zustand
+- Tailwind CSS
+- electron-builder / NSIS
 
-- The app is fully local and offline after dependencies are installed.
-- Projects are plain JSON documents with the `.pcanvas` extension.
-- Autosave writes a project snapshot to Electron `userData` every 10 seconds while the document is dirty.
-- Multi-selection is supported for selection and transformer operations; dragging one selected object moves that object.
-- Image import uses the browser file picker and stores the image as a data URL in the project file.
-- With the text tool, click to create point text or drag to create a paragraph box. Use Ctrl+Enter to finish editing.
-- Arrow keys nudge selected objects by 1 px; Shift+arrow nudges by 10 px.
-- Ctrl-click or Shift-click in the Layers panel builds multi-selections; Shift selects a contiguous range. Fill, stroke color, and stroke width can be applied to the whole selection.
-- Vector paths are created point by point, can be open or closed, and expose draggable anchor points after selection.
-- SVG files opened or dragged into the canvas become editable paths, groups and text rather than a flattened image.
-- EPS files use a safe command reader for common vector artwork. Unsupported PostScript resources are reported instead of silently rasterized.
-- Proprietary AI files are intentionally not presented as native: export them as SVG in Illustrator to preserve vectors and groups before opening in Canvas D.
-- EPS export is generated locally and keeps supported artwork as vectors. SVG and `.pcanvas` remain the highest-fidelity editable formats in Canvas D.
-- WebP can be opened, dragged into the canvas, exported, or chosen in Save As.
-- Images and SVGs can be cropped directly on the canvas with the Crop tool.
-- Automatic arrow connections are optional and disabled by default; enable them in the Arrow tool properties when smart connectors are desired.
-- Rectangle corner handles edit all corners together; hold Shift while dragging to edit one corner independently.
-- Properties keeps its width, card order, collapsed cards, and compact/full mode between sessions. Export stays last and Transform starts first in the default layout.
-- When Properties is compact, each contextual icon opens its card temporarily and clicking back on the canvas closes it.
-- Layers can float over the canvas or dock as a reorderable Properties card. While dragging a layer, the mouse wheel scrolls the list without releasing the item.
-- Open Settings from `Edit > Configuracoes...`, `Ctrl+,`, or the app File menu. Theme and interface choices apply globally and are not stored inside `.pcanvas` files.
+## Estrutura do projeto
 
-## Future TODOs
+```text
+src/
+├── main/       # Janela Electron, arquivos, fontes e exportação
+├── preload/    # Ponte IPC segura para o renderer
+└── renderer/   # Interface React, canvas, ferramentas e stores
+scripts/        # Smoke tests e validação de metadados raster
+assets/         # Identidade visual original
+build/          # Recursos do instalador Windows
+```
 
-- Snap to grid
-- Reusable components
-- Website templates
-- PDF export
-- Clickable prototyping
-- Component library
-- Mind maps with smart connectors
-- Presentation mode
-- AI layout generation
-- Screenshot to wireframe
-- Custom themes
-- Plugin system
+## Histórico
+
+Veja [CHANGELOG.md](CHANGELOG.md) para a descrição detalhada do que foi implementado em cada versão, da `0.1.0` à versão atual.
+
+## Licença
+
+Distribuído sob a [licença MIT](LICENSE).
+
