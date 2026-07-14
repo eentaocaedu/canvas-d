@@ -1,0 +1,65 @@
+{
+  "name": "canvas-d",
+  "version": "0.8.1",
+  "description": "Canvas D is a local infinite canvas desktop app for wireframes, maps and visual ideas.",
+  "author": "Canvas D",
+  "license": "MIT",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "tsc --noEmit && electron-vite build",
+    "smoke": "node scripts/smoke-app.mjs",
+    "test:metadata": "node scripts/test-raster-metadata.mjs",
+    "preview": "electron-vite preview",
+    "dist": "npm run build && electron-builder --win --publish never"
+  },
+  "dependencies": {
+    "konva": "^10.0.12",
+    "lucide-react": "^0.525.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0",
+    "react-konva": "^19.0.7",
+    "zustand": "^5.0.6"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.12",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
+    "autoprefixer": "^10.4.21",
+    "electron": "^37.2.0",
+    "electron-builder": "^26.0.12",
+    "electron-vite": "^4.0.0",
+    "postcss": "^8.5.6",
+    "svgpath": "^2.6.0",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.3"
+  },
+  "build": {
+    "appId": "com.canvasd.app",
+    "productName": "Canvas D",
+    "directories": {
+      "buildResources": "build",
+      "output": "release"
+    },
+    "icon": "build/icon.ico",
+    "files": [
+      "out/**",
+      "package.json"
+    ],
+    "win": {
+      "icon": "build/icon.ico",
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "installerIcon": "build/icon.ico",
+      "uninstallerIcon": "build/icon.ico",
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
